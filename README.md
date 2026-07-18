@@ -65,6 +65,12 @@ This branch contains a high-level automation framework using **Java** and **Cucu
 mvn dependency:purge-local-repository
 mvn clean test-compile
 mvn clean install -U -DskipTests - Pular os testes quando necessario para fazer o build completo.
+taskkill /f /im chrome.exe /t - for clean the chrome
+taskkill /f /im chromedriver.exe /t - for clean the chrome
+### Tests Results Via Git Actions
+![Java CI with Maven](https://github.com/diogorangel/project-javakarate-web-api/actions/workflows/maven.yml/badge.svg?branch=master) 
+
+[Clique aqui para ver o Relatório de Testes (Allure)](https://diogorangel.github.io/project-javakarate-web-api/)
 ### ✅ Final Checklist for Success:
 
 1.  **Install Maven:** As seen in your image, the `mvn` command failed. Make sure to download Maven and add the `bin` folder to your Windows **PATH**.

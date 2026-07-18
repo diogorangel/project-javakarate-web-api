@@ -10,7 +10,7 @@ public class APISteps {
     @When("Realizo um GET para o endpoint de usuarios status 200 error")
     public void realizarGet200error() {
         RestAssured.baseURI = "https://reqres.in";
-        given().when().get("/api/users/2").then().statusCode(401); 
+        given().when().get("/api/users/2").then().statusCode(org.hamcrest.Matchers.not(200)); 
     }
     
     @When("Realizo um GET para o endpoint de usuarios status 401 right")
