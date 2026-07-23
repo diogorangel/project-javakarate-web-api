@@ -1,5 +1,8 @@
 package driver;
-
+// Selenium 4.6+ automatically handles driver binaries via Selenium Manager.
+// No need for WebDriverManager.chromedriver().setup() anymore.
+ // Multipliquei por 1000 porque o Java conta em milissegundos
+// Caso ocorra um erro na interrupção da thread
 import java.io.File;
 import java.io.IOException;
 import java.io.FileInputStream;
@@ -16,8 +19,7 @@ public class DriverManager {
 
     public static WebDriver getDriver() {
         if (driver == null) {
-            // Selenium 4.6+ automatically handles driver binaries via Selenium Manager.
-            // No need for WebDriverManager.chromedriver().setup() anymore.
+            
             
             ChromeOptions options = new ChromeOptions();
             options.addArguments("--remote-allow-origins=*");
@@ -37,10 +39,8 @@ public class DriverManager {
 
     public static void waitSeconds(int seconds) {
         try {
-            // Multiplicamos por 1000 porque o Java conta em milissegundos
             Thread.sleep(seconds * 1000L);
         } catch (InterruptedException e) {
-            // Caso ocorra um erro na interrupção da thread
             Thread.currentThread().interrupt();
             System.err.println("Erro durante a espera: " + e.getMessage());
         }
